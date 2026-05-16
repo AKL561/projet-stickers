@@ -766,8 +766,7 @@
     <div class="cart-footer" id="cartFooter" style="display:none;">
       <div class="total" id="cartTotal"></div>
       <form class="reserve-form" id="reserveForm" autocomplete="off">
-        <input type="text" id="reserveName" placeholder="Votre nom *" required />
-        <input type="email" id="reserveEmail" placeholder="Votre email *" required />
+        <input type="text" id="reserveName" placeholder="Votre pseudo Vinted *" required />
         <input type="tel" id="reservePhone" placeholder="Téléphone (optionnel)" />
         <button type="submit" class="reserve-btn" id="reserveBtn">
           📩 Envoyer la réservation
@@ -914,7 +913,15 @@
         const img = card.querySelector('img');
         img.onload = () => img.classList.add('loaded');
 
-        card.addEventListener('click', () => toggleCart(file));
+        img.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLightbox(`stickers/${encodeURIComponent(file)}`, name);
+        });
+
+        card.addEventListener('click', (e) => {
+          // Don't toggle cart if clicking the image (lightbox opens instead)
+          if (e.target.tagName !== 'IMG') toggleCart(file);
+        });
 
         grid.appendChild(card);
       });
@@ -1045,11 +1052,10 @@
       e.preventDefault();
 
       const name = document.getElementById('reserveName').value.trim();
-      const email = document.getElementById('reserveEmail').value.trim();
       const phone = document.getElementById('reservePhone').value.trim();
 
-      if (!name || !email) {
-        reserveFeedback.innerHTML = '<div class="reserve-error">Nom et email requis</div>';
+      if (!name) {
+        reserveFeedback.innerHTML = '<div class="reserve-error">Pseudo Vinted requis</div>';
         return;
       }
 
@@ -1068,7 +1074,6 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             name,
-            email,
             phone,
             items: cart.map(f => ({ file: f, name: displayName(f) }))
           })
@@ -1119,6 +1124,78 @@
       renderGrid();
       updateUI();
     }, 400);
+  </script>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      opacity: 0.8;
+    }
+    .lightbox-close:hover {
+      opacity: 1;
+    }
+    #lightbox-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 18px;
+      background: rgba(0,0,0,0.6);
+      padding: 8px 20px;
+      border-radius: 20px;
+    }
+    .sticker-card img {
+      cursor: zoom-in;
+    }
+  </style>
+
+  <script>
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption || '';
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
