@@ -1,0 +1,712 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "S02",
+      "stock": 1,
+      "category": "Sticker",
+      "image": "stickers/S02.jpeg",
+      "title": "Stone noir"
+    },
+    {
+      "id": 2,
+      "name": "S04",
+      "stock": 16,
+      "category": "Sticker",
+      "image": "stickers/S04.jpeg",
+      "title": "Stone blanc"
+    },
+    {
+      "id": 3,
+      "name": "S01",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/S01.jpeg",
+      "title": "Stone carbone"
+    },
+    {
+      "id": 4,
+      "name": "S03",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/S03.jpeg",
+      "title": "Stone color"
+    },
+    {
+      "id": 5,
+      "name": "S05",
+      "stock": 25,
+      "category": "Sticker",
+      "image": "stickers/S05.jpeg",
+      "title": "Stone rose"
+    },
+    {
+      "id": 6,
+      "name": "CP04",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/CP04.jpeg",
+      "title": "Cp rose"
+    },
+    {
+      "id": 7,
+      "name": "CP01",
+      "stock": 24,
+      "category": "Sticker",
+      "image": "stickers/CP01.jpeg",
+      "title": "Cp bleu"
+    },
+    {
+      "id": 8,
+      "name": "CP02",
+      "stock": 48,
+      "category": "Sticker",
+      "image": "stickers/CP02.jpeg",
+      "title": "Cp noir"
+    },
+    {
+      "id": 9,
+      "name": "CP03",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/CP03.jpeg",
+      "title": "Cp color"
+    },
+    {
+      "id": 10,
+      "name": "CP05",
+      "stock": 30,
+      "category": "Sticker",
+      "image": "stickers/CP05.jpeg",
+      "title": "Cp bleu motifs"
+    },
+    {
+      "id": 11,
+      "name": "YH02",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/YH02.jpeg",
+      "title": "Yamaha blanc"
+    },
+    {
+      "id": 12,
+      "name": "YH01",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/YH01.jpeg",
+      "title": "Yamaha bleu"
+    },
+    {
+      "id": 13,
+      "name": "YH03",
+      "stock": 11,
+      "category": "Sticker",
+      "image": "stickers/YH03.jpeg",
+      "title": "Yamaha carbone"
+    },
+    {
+      "id": 14,
+      "name": "YH04",
+      "stock": 28,
+      "category": "Sticker",
+      "image": "stickers/YH04.jpeg",
+      "title": "Yamaha logo blanc"
+    },
+    {
+      "id": 15,
+      "name": "YH07",
+      "stock": 32,
+      "category": "Sticker",
+      "image": "stickers/YH07.jpeg",
+      "title": "Yamaha logo noir"
+    },
+    {
+      "id": 16,
+      "name": "YH06",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/YH06.jpeg",
+      "title": "Yamaha logo bleu"
+    },
+    {
+      "id": 17,
+      "name": "YH05",
+      "stock": 19,
+      "category": "Sticker",
+      "image": "stickers/YH05.jpeg",
+      "title": "Yamaha bleu clair"
+    },
+    {
+      "id": 18,
+      "name": "AR02",
+      "stock": 3,
+      "category": "Sticker",
+      "image": "stickers/AR02.jpeg",
+      "title": "Arai bleu"
+    },
+    {
+      "id": 19,
+      "name": "AR01",
+      "stock": 3,
+      "category": "Sticker",
+      "image": "stickers/AR01.jpeg",
+      "title": "Arai blanc"
+    },
+    {
+      "id": 20,
+      "name": "AR03",
+      "stock": 18,
+      "category": "Sticker",
+      "image": "stickers/AR03.jpeg",
+      "title": "Arai noir"
+    },
+    {
+      "id": 21,
+      "name": "AR07",
+      "stock": 26,
+      "category": "Sticker",
+      "image": "stickers/AR07.jpeg",
+      "title": "Arai noir 2"
+    },
+    {
+      "id": 22,
+      "name": "AR04",
+      "stock": 1,
+      "category": "Sticker",
+      "image": "stickers/AR04.jpeg",
+      "title": "ARAI bleu violet"
+    },
+    {
+      "id": 23,
+      "name": "AR05",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/AR05.jpeg",
+      "title": "Arial violet"
+    },
+    {
+      "id": 24,
+      "name": "AR06",
+      "stock": 1,
+      "category": "Sticker",
+      "image": "stickers/AR06.jpeg",
+      "title": "Arai color"
+    },
+    {
+      "id": 25,
+      "name": "M2",
+      "stock": 23,
+      "category": "Sticker",
+      "image": "stickers/M2.jpeg",
+      "title": "OM bleu"
+    },
+    {
+      "id": 26,
+      "name": "M1",
+      "stock": 21,
+      "category": "Sticker",
+      "image": "stickers/M1.jpeg",
+      "title": "OM blanc"
+    },
+    {
+      "id": 27,
+      "name": "PG01",
+      "stock": 8,
+      "category": "Sticker",
+      "image": "stickers/PG01.jpeg",
+      "title": "PSG"
+    },
+    {
+      "id": 28,
+      "name": "RL01",
+      "stock": 9,
+      "category": "Sticker",
+      "image": "stickers/RL01.jpeg",
+      "title": "Réal"
+    },
+    {
+      "id": 29,
+      "name": "GT03",
+      "stock": 78,
+      "category": "Sticker",
+      "image": "stickers/GT03.jpeg",
+      "title": "Gaston noir"
+    },
+    {
+      "id": 30,
+      "name": "GT05",
+      "stock": 71,
+      "category": "Sticker",
+      "image": "stickers/GT05.jpeg",
+      "title": "Gaston bleu red"
+    },
+    {
+      "id": 31,
+      "name": "GT02",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/GT02.jpeg",
+      "title": "Gaston blanc"
+    },
+    {
+      "id": 32,
+      "name": "GT04",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/GT04.jpeg",
+      "title": "Gaston color"
+    },
+    {
+      "id": 33,
+      "name": "GT08",
+      "stock": 37,
+      "category": "Sticker",
+      "image": "stickers/GT08.jpeg",
+      "title": "Gaston blanc 2"
+    },
+    {
+      "id": 34,
+      "name": "GT07",
+      "stock": 28,
+      "category": "Sticker",
+      "image": "stickers/GT07.jpeg",
+      "title": "Gaston bleu"
+    },
+    {
+      "id": 35,
+      "name": "GT06",
+      "stock": 22,
+      "category": "Sticker",
+      "image": "stickers/GT06.jpeg",
+      "title": "Gaston gris"
+    },
+    {
+      "id": 36,
+      "name": "GT01",
+      "stock": 21,
+      "category": "Sticker",
+      "image": "stickers/GT01.jpeg",
+      "title": "Gaston rouge"
+    },
+    {
+      "id": 37,
+      "name": "J01",
+      "stock": 32,
+      "category": "Sticker",
+      "image": "stickers/J01.jpeg",
+      "title": "Jul noir"
+    },
+    {
+      "id": 38,
+      "name": "J02",
+      "stock": 12,
+      "category": "Sticker",
+      "image": "stickers/J02.jpeg",
+      "title": "Jul noir rouge"
+    },
+    {
+      "id": 39,
+      "name": "J04",
+      "stock": 17,
+      "category": "Sticker",
+      "image": "stickers/J04.jpeg",
+      "title": "Jul blanc"
+    },
+    {
+      "id": 40,
+      "name": "J06",
+      "stock": 10,
+      "category": "Sticker",
+      "image": "stickers/J06.jpeg",
+      "title": "Jul"
+    },
+    {
+      "id": 41,
+      "name": "J05",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/J05.jpeg",
+      "title": "Jul color"
+    },
+    {
+      "id": 42,
+      "name": "J03",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/J03.jpeg",
+      "title": "Jul violet"
+    },
+    {
+      "id": 43,
+      "name": "OV01",
+      "stock": 16,
+      "category": "Sticker",
+      "image": "stickers/OV01.jpeg",
+      "title": "Ovni carbone"
+    },
+    {
+      "id": 44,
+      "name": "OV02",
+      "stock": 2,
+      "category": "Sticker",
+      "image": "stickers/OV02.jpeg",
+      "title": "Ovni noir"
+    },
+    {
+      "id": 45,
+      "name": "OV03",
+      "stock": 13,
+      "category": "Sticker",
+      "image": "stickers/OV03.jpeg",
+      "title": "Dor blanc"
+    },
+    {
+      "id": 46,
+      "name": "DR01",
+      "stock": 21,
+      "category": "Sticker",
+      "image": "stickers/DR01.jpeg",
+      "title": "Dor bleu"
+    },
+    {
+      "id": 47,
+      "name": "CL01",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/CL01.jpeg",
+      "title": "Cagoule rose"
+    },
+    {
+      "id": 48,
+      "name": "CL02",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/CL02.jpeg",
+      "title": "Cagoule gris"
+    },
+    {
+      "id": 49,
+      "name": "BP01",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/BP01.jpeg",
+      "title": "Bap"
+    },
+    {
+      "id": 50,
+      "name": "NT01",
+      "stock": 12,
+      "category": "Sticker",
+      "image": "stickers/NT01.jpeg",
+      "title": "Ntd"
+    },
+    {
+      "id": 51,
+      "name": "PL01",
+      "stock": 10,
+      "category": "Sticker",
+      "image": "stickers/PL01.jpeg",
+      "title": "Philippe"
+    },
+    {
+      "id": 52,
+      "name": "VR01",
+      "stock": 15,
+      "category": "Sticker",
+      "image": "stickers/VR01.jpeg",
+      "title": "Vrunk bleu"
+    },
+    {
+      "id": 53,
+      "name": "OT01",
+      "stock": 1,
+      "category": "Sticker",
+      "image": "stickers/OT01.jpeg",
+      "title": "Omerta noir"
+    },
+    {
+      "id": 54,
+      "name": "P05",
+      "stock": 2,
+      "category": "Sticker",
+      "image": "stickers/P05.jpeg",
+      "title": "Paul violet"
+    },
+    {
+      "id": 55,
+      "name": "P01",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/P01.jpeg",
+      "title": "Paul rose"
+    },
+    {
+      "id": 56,
+      "name": "P04",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/P04.jpeg",
+      "title": "Paul rose pale"
+    },
+    {
+      "id": 57,
+      "name": "P03",
+      "stock": 15,
+      "category": "Sticker",
+      "image": "stickers/P03.jpeg",
+      "title": "Paul blanc"
+    },
+    {
+      "id": 58,
+      "name": "P02",
+      "stock": 6,
+      "category": "Sticker",
+      "image": "stickers/P02.jpeg",
+      "title": "Paul noir"
+    },
+    {
+      "id": 59,
+      "name": "P06",
+      "stock": 30,
+      "category": "Sticker",
+      "image": "stickers/P06.jpeg",
+      "title": "Paul rose noir"
+    },
+    {
+      "id": 60,
+      "name": "P08",
+      "stock": 16,
+      "category": "Sticker",
+      "image": "stickers/P08.jpeg",
+      "title": "paul carbone"
+    },
+    {
+      "id": 61,
+      "name": "P07",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/P07.jpeg",
+      "title": "Paul color"
+    },
+    {
+      "id": 62,
+      "name": "FZ01",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/FZ01.jpeg",
+      "title": "Freezer"
+    },
+    {
+      "id": 63,
+      "name": "SM02",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/SM02.jpeg",
+      "title": "Simpson"
+    },
+    {
+      "id": 64,
+      "name": "SM1",
+      "stock": 2,
+      "category": "Sticker",
+      "image": "stickers/SM1.jpeg",
+      "title": "Simpson iman"
+    },
+    {
+      "id": 65,
+      "name": "KT01",
+      "stock": 1,
+      "category": "Sticker",
+      "image": "stickers/KT01.jpeg",
+      "title": "KTM"
+    },
+    {
+      "id": 66,
+      "name": "TN01",
+      "stock": 6,
+      "category": "Sticker",
+      "image": "stickers/TN01.jpeg",
+      "title": "TN"
+    },
+    {
+      "id": 67,
+      "name": "ey01",
+      "stock": 6,
+      "category": "Sticker",
+      "image": "stickers/ey01.jpeg",
+      "title": "Eye"
+    },
+    {
+      "id": 68,
+      "name": "FR02",
+      "stock": 22,
+      "category": "Sticker",
+      "image": "stickers/FR02.jpeg",
+      "title": "France 2"
+    },
+    {
+      "id": 69,
+      "name": "FR01",
+      "stock": 0,
+      "category": "Sticker",
+      "image": "stickers/FR01.jpeg",
+      "title": "France"
+    },
+    {
+      "id": 70,
+      "name": "IT01",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/IT01.jpeg",
+      "title": "Italie"
+    },
+    {
+      "id": 71,
+      "name": "ES01",
+      "stock": 3,
+      "category": "Sticker",
+      "image": "stickers/ES01.jpeg",
+      "title": "Espagne"
+    },
+    {
+      "id": 72,
+      "name": "C01",
+      "stock": 10,
+      "category": "Sticker",
+      "image": "stickers/C01.jpeg",
+      "title": "Corse"
+    },
+    {
+      "id": 73,
+      "name": "SN01",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/SN01.jpeg",
+      "title": "Sénégal"
+    },
+    {
+      "id": 74,
+      "name": "RC01",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/RC01.jpeg",
+      "title": "Congo"
+    },
+    {
+      "id": 75,
+      "name": "AL01",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/AL01.jpeg",
+      "title": "Algérie"
+    },
+    {
+      "id": 76,
+      "name": "TS01",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/TS01.jpeg",
+      "title": "Tunisie"
+    },
+    {
+      "id": 77,
+      "name": "MR01",
+      "stock": 2,
+      "category": "Sticker",
+      "image": "stickers/MR01.jpeg",
+      "title": "Maroc"
+    },
+    {
+      "id": 78,
+      "name": "DZ01",
+      "stock": 11,
+      "category": "Sticker",
+      "image": "stickers/DZ01.jpeg",
+      "title": "Dz"
+    },
+    {
+      "id": 79,
+      "name": "PT01",
+      "stock": 5,
+      "category": "Sticker",
+      "image": "stickers/PT01.jpeg",
+      "title": "Portugal"
+    },
+    {
+      "id": 80,
+      "name": "BZ01",
+      "stock": 7,
+      "category": "Sticker",
+      "image": "stickers/BZ01.jpeg",
+      "title": "Brésil"
+    },
+    {
+      "id": 81,
+      "name": "P1",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/P1.jpeg",
+      "title": "Palestine"
+    },
+    {
+      "id": 82,
+      "name": "AM01",
+      "stock": 4,
+      "category": "Sticker",
+      "image": "stickers/AM01.jpeg",
+      "title": "Amazigh"
+    },
+    {
+      "id": 83,
+      "name": "G8",
+      "stock": 9,
+      "category": "Sticker",
+      "image": "stickers/G8.jpeg",
+      "title": "Gitans"
+    },
+    {
+      "id": 84,
+      "name": "R1",
+      "stock": 13,
+      "category": "Sticker",
+      "image": "stickers/R1.jpeg",
+      "title": "Morti"
+    },
+    {
+      "id": 85,
+      "name": "01P",
+      "stock": 13,
+      "category": "Porte-cle",
+      "image": "stickers/01P.jpeg",
+      "title": "Porte clé or"
+    },
+    {
+      "id": 86,
+      "name": "02P",
+      "stock": 9,
+      "category": "Porte-cle",
+      "image": "stickers/02P.jpeg",
+      "title": "Porte clé arg"
+    },
+    {
+      "id": 87,
+      "name": "ZN01",
+      "stock": 57,
+      "category": "Sticker",
+      "image": "stickers/ZN01.jpeg",
+      "title": "la zone"
+    },
+    {
+      "id": 88,
+      "name": "A46",
+      "stock": 19,
+      "category": "Sticker",
+      "image": "stickers/A46.jpeg",
+      "title": "46"
+    }
+  ],
+  "orders": [],
+  "meta": {
+    "lastSync": "2026-05-15T22:11:02.081Z"
+  }
+}
