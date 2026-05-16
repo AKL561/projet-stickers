@@ -92,7 +92,8 @@ function expireReservations() {
         const product = store.products.find(
           p => p.name.toLowerCase() === (item.name || '').toLowerCase()
         );
-        if (product) product.stock++;
+        const qty = item.qty || 1;
+        if (product) product.stock += qty;
       }
       saveStore(store);
       changed = true;
@@ -657,8 +658,9 @@ app.post('/api/reserve', (req, res) => {
     const product = store.products.find(
       p => p.name.toLowerCase() === (item.name || '').toLowerCase()
     );
-    if (product && product.stock > 0) {
-      product.stock--;
+    const qty = item.qty || 1;
+    if (product && product.stock >= qty) {
+      product.stock -= qty;
     }
   }
   saveStore(store);
@@ -708,7 +710,8 @@ app.post('/api/reserve/cancel/:id', (req, res) => {
     const product = store.products.find(
       p => p.name.toLowerCase() === (item.name || '').toLowerCase()
     );
-    if (product) product.stock++;
+    const qty = item.qty || 1;
+    if (product) product.stock += qty;
   }
   saveStore(store);
   saveReservations(reservations);

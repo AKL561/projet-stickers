@@ -340,6 +340,21 @@
 
     .sticker-card:not(.in-cart) .add-label { display: block; }
 
+    .sticker-card .qty-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      padding: 0 5px;
+      margin-right: 4px;
+    }
+
     /* ── Loading ─────────────────────────────────── */
 
     .loading-state {
@@ -487,8 +502,38 @@
       padding: 4px;
       transition: var(--transition);
     }
-
     .cart-item .remove-btn:hover { color: #e74c3c; }
+
+    .cart-item .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: 4px;
+    }
+    .cart-item .qty-btn {
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      transition: background .15s;
+      line-height: 1;
+    }
+    .cart-item .qty-btn:hover { background: #e0e0e0; }
+    .cart-item .qty-btn:active { background: #d0d0d0; }
+    .cart-item .qty-value {
+      min-width: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
 
     /* ── Reservation Form ────────────────────────── */
 
@@ -821,7 +866,7 @@
     // State
     // ══════════════════════════════════════════════════════════
 
-    let cart = [];
+    let cart = []; // [{ file, qty }]
     let currentSort = 'name-asc';
     let currentSearch = '';
 
@@ -893,11 +938,16 @@
 
       list.forEach(file => {
         const name = displayName(file);
-        const inCart = cart.includes(file);
+        const item = cart.find(i => i.file === file);
+        const inCart = !!item;
 
         const card = document.createElement('div');
         card.className = 'sticker-card' + (inCart ? ' in-cart' : '');
         card.dataset.file = file;
+
+        const label = inCart
+          ? `<span class="qty-badge">${item.qty}</span>`
+          : '<div class="add-label">+ Ajouter</div>';
 
         card.innerHTML = `
           <div class="img-wrap">
@@ -905,7 +955,7 @@
             <img src="stickers/${encodeURIComponent(file)}" alt="${name}" loading="lazy" />
           </div>
           <div class="caption">
-            ${inCart ? '' : '<div class="add-label">+ Ajouter</div>'}
+            ${label}
             ${name}
           </div>
         `;
@@ -920,7 +970,7 @@
 
         card.addEventListener('click', (e) => {
           // Don't toggle cart if clicking the image (lightbox opens instead)
-          if (e.target.tagName !== 'IMG') toggleCart(file);
+          if (e.target.tagName !== 'IMG') addToCart(file);
         });
 
         grid.appendChild(card);
@@ -931,21 +981,35 @@
     // Cart
     // ══════════════════════════════════════════════════════════
 
-    function toggleCart(file) {
-      const idx = cart.indexOf(file);
-      if (idx >= 0) {
-        cart.splice(idx, 1);
-        showToast('🗑️ Retiré du panier');
+    function addToCart(file) {
+      const existing = cart.find(item => item.file === file);
+      if (existing) {
+        existing.qty += 1;
+        showToast('✅ +1 ' + displayName(file));
       } else {
-        cart.push(file);
+        cart.push({ file, qty: 1 });
         showToast('✅ Ajouté au panier');
       }
       updateUI();
     }
 
     function removeFromCart(file) {
-      cart = cart.filter(f => f !== file);
+      cart = cart.filter(item => item.file !== file);
       showToast('🗑️ Retiré du panier');
+      updateUI();
+    }
+
+    function decrementCart(file) {
+      const existing = cart.find(item => item.file === file);
+      if (existing) {
+        existing.qty -= 1;
+        if (existing.qty <= 0) {
+          cart = cart.filter(item => item.file !== file);
+          showToast('🗑️ Retiré du panier');
+        } else {
+          showToast('➖ -1 ' + displayName(file));
+        }
+      }
       updateUI();
     }
 
@@ -953,25 +1017,28 @@
       // Update grid cards
       document.querySelectorAll('.sticker-card').forEach(card => {
         const file = card.dataset.file;
-        const inCart = cart.includes(file);
+        const item = cart.find(i => i.file === file);
+        const inCart = !!item;
         card.classList.toggle('in-cart', inCart);
         const caption = card.querySelector('.caption');
         const name = displayName(file);
-        const label = inCart ? '' : '<div class="add-label">+ Ajouter</div>';
+        const label = inCart ? `<span class="qty-badge">${item.qty}</span>` : '<div class="add-label">+ Ajouter</div>';
         caption.innerHTML = label + name;
       });
 
-      // Update cart count
-      const count = cart.length;
-      cartCount.textContent = count;
-      cartCount.classList.toggle('show', count > 0);
+      // Update cart count (sum of all quantities)
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartCount.textContent = totalQty;
+      cartCount.classList.toggle('show', totalQty > 0);
 
       // Update cart sidebar
       renderCartSidebar();
     }
 
     function renderCartSidebar() {
-      if (cart.length === 0) {
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+
+      if (totalQty === 0) {
         cartEmpty.style.display = 'block';
         cartItems.innerHTML = '';
         cartFooter.style.display = 'none';
@@ -983,21 +1050,42 @@
       cartFooter.style.display = 'block';
 
       let html = '';
-      cart.forEach(file => {
-        const name = displayName(file);
+      cart.forEach(item => {
+        const name = displayName(item.file);
         html += `
           <div class="cart-item">
-            <img class="thumb" src="stickers/${encodeURIComponent(file)}" alt="${name}" />
+            <img class="thumb" src="stickers/${encodeURIComponent(item.file)}" alt="${name}" />
             <div class="info">
               <div class="name">${name}</div>
-              <div class="ref">${file}</div>
+              <div class="ref">${item.file}</div>
             </div>
-            <button class="remove-btn" data-file="${file}" aria-label="Retirer">✕</button>
+            <div class="qty-controls">
+              <button class="qty-btn minus-btn" data-file="${item.file}" aria-label="Enlever un">−</button>
+              <span class="qty-value">${item.qty}</span>
+              <button class="qty-btn plus-btn" data-file="${item.file}" aria-label="Ajouter un">+</button>
+            </div>
+            <button class="remove-btn" data-file="${item.file}" aria-label="Retirer">✕</button>
           </div>`;
       });
       cartItems.innerHTML = html;
 
-      cartTotal.textContent = `${cart.length} sticker${cart.length > 1 ? 's' : ''} dans le panier`;
+      cartTotal.textContent = `${totalQty} sticker${totalQty > 1 ? 's' : ''} dans le panier`;
+
+      // Plus buttons
+      cartItems.querySelectorAll('.plus-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          addToCart(btn.dataset.file);
+        });
+      });
+
+      // Minus buttons
+      cartItems.querySelectorAll('.minus-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          decrementCart(btn.dataset.file);
+        });
+      });
 
       // Remove buttons
       cartItems.querySelectorAll('.remove-btn').forEach(btn => {
@@ -1075,7 +1163,7 @@
           body: JSON.stringify({
             name,
             phone,
-            items: cart.map(f => ({ file: f, name: displayName(f) }))
+            items: cart.map(item => ({ file: item.file, name: displayName(item.file), qty: item.qty }))
           })
         });
 
