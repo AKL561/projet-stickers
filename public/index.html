@@ -1161,7 +1161,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name,
+            pseudo: name,
             phone,
             items: cart.map(item => ({ file: item.file, name: displayName(item.file), qty: item.qty }))
           })
