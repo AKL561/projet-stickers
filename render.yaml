@@ -8,3 +8,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      # ⚠️ GOOGLE_CREDENTIALS_JSON doit être ajouté via le Dashboard Render
+      # (Settings > Environment Variables) — contenu du JSON du service account.
+      # Ne PAS mettre la valeur ici (clé privée sensible).
